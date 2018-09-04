@@ -1,13 +1,13 @@
 <main>
-	<h1>Articulos</h1>
-	<%= link_to("Añadir artículo", new_article_path, :class => 'action new btn btn-light') %>
-
+	<h1>Articulos <%= link_to("Añadir artículo", new_article_path, :class => 'action new btn btn-outline-success btn-small') %></h1>
+	 
+	<hr>
 	<%= form_tag(articles_path, method: :get) do %>
 	  <%= text_field_tag :term,  nil, placeholder: 'Ingresar + o - (ej. +10)' %>
-	  <%= submit_tag 'Porcentaje' %>
+	  <%= submit_tag ("Porcentaje") %>
 	<% end %>
 	
-	<table class="table" style="margin-top: 10px;">
+	<table class="table table-striped" style="margin-top: 10px;">
 	  <thead>
 	    <tr>
 	      <th scope="col">#</th>
@@ -30,6 +30,10 @@
 	      	<td><%= article.euro %></td>
 	    	<td><%= article.dolar %></td>
 	     	<td><%= article.nombre %></td>
+	     	<td>
+	    		<%= link_to("ver / editar", edit_article_path(article), :class => 'btn btn-outline-primary btn-sm') %>
+	    		<%= link_to("eliminar", delete_article_path(article), :class => 'btn btn-outline-danger btn-sm') %>
+	    	</td>
 	    </tr>
 	    <% end %>
 	  </tbody>

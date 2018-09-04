@@ -1,28 +1,31 @@
 <main>
 
-	<h1>Proformas</h1>
-	<%= link_to("Añadir cliente", new_cliente_path, :class => 'action new btn btn-light') %>
+	<h1>Proformas <%= link_to("Añadir proforma", new_proforma_path, :class => 'action new btn btn-outline-success btn-small') %></h1>
 	
-	<table class="table" style="margin-top: 10px;">
+	<table class="table table-striped">
 	  <thead>
 	    <tr>
 	      <th scope="col">#</th>
 	      <th scope="col">Cliente</th>
 	      <th scope="col">Proveedor</th>
+	      <th scope="col">Comuna</th>
 	      <th scope="col">Subtotal</th>
+	      <th scope="col">Fecha</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<% @proformas.each do |proforma| %>
 	    <tr>
-	      <th scope="row"><%= proforma.id %></th>
-	      <td><%= proforma.nombre_cliente %>
-	      	<br>
-	      	
-		    <%= link_to("editar", edit_proforma_path(proforma), :class => 'action edit btn btn-outline-warning btn-sm') %>
-	      </td>
-	      <td><%= proforma.nombre_proveedor %></td>
-	      <td><%= proforma.subtotal_producto %></td>
+	      	<th scope="row"><%= proforma.id %></th>
+	      	<td><%= proforma.nombre_cliente %></td>
+	      	<td><%= proforma.nombre_proveedor %></td>
+	      	<td><%= proforma.comuna_proveedor %></td>
+	      	<td><%= proforma.subtotal_producto %></td>
+	      	<td><%= proforma.created_at %></td>
+	      	<td>
+	    		<%= link_to("ver / editar", edit_proforma_path(proforma), :class => 'btn btn-outline-primary btn-sm') %>
+	    		<%= link_to("eliminar", delete_proforma_path(proforma), :class => 'btn btn-outline-danger btn-sm') %>
+	    	</td>
 	    </tr>
 	    <% end %>
 	  </tbody>

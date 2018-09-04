@@ -1,9 +1,8 @@
 <main>
 
-	<h1>Clientes</h1>
-	<%= link_to("Añadir cliente", new_cliente_path, :class => 'action new btn btn-light') %>
+	<h1>Clientes <%= link_to("Añadir cliente", new_cliente_path, :class => 'action new btn btn-outline-success btn-small') %></h1>
 	
-	<table class="table" style="margin-top: 10px;">
+	<table class="table table-striped" style="margin-top: 10px;">
 	  <thead>
 	    <tr>
 	      <th scope="col">#</th>
@@ -21,11 +20,7 @@
 	  	<% @clientes.each do |cliente| %>
 	    <tr>
 	      <th scope="row"><%= cliente.id %></th>
-	      <td><%= cliente.nombre %> 
-	      	<br>
-	      	
-		    <%= link_to("editar", edit_cliente_path(cliente), :class => 'action edit btn btn-outline-warning btn-sm') %>
-		    </td>
+	      <td><%= cliente.nombre %></td>
 	      <td><%= cliente.apellido_paterno %></td>
 	      <td><%= cliente.apellido_materno %></td>
 	      <td><%= cliente.direccion %></td>
@@ -33,11 +28,9 @@
 	      <td><%= cliente.email %></td>
 	      <td><%= cliente.comuna.try(:nombre) %></td>
 	      <td>
-	      	<div class="">
-		      	
-		      	
-	      	</div>
-	      </td>
+	    		<%= link_to("ver / editar", edit_cliente_path(cliente), :class => 'btn btn-outline-primary btn-sm') %>
+	    		<%= link_to("eliminar", delete_cliente_path(cliente), :class => 'btn btn-outline-danger btn-sm') %>
+	    	</td>
 	    </tr>
 	    <% end %>
 	  </tbody>

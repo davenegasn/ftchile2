@@ -1,6 +1,6 @@
 <main>
 	<h1>Añadir proveedor</h1>
-	<%= form_for(@supplier) do |f| %>
+	<%= form_for@supplier, html: { multipart: true } do |f| %>
 	<%= render(:partial => 'form', :locals => {:f => f}) %>
 	<div class="form-row">
 		<div class="form-group col-md-12">

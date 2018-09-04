@@ -1,5 +1,5 @@
 <main>
-	<h1>Artículo</h1>
+	<h1>Artículo #<%= @article.id %></h1>
 	<%= form_for(@article) do |f| %>
 	<%= render(:partial => 'form', :locals => {:f => f}) %>
 	<% end %>
