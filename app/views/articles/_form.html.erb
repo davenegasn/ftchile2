@@ -1,0 +1,31 @@
+<div class="form-row">
+	<div class="form-group col-md-12">
+	  <label for="email">Descripción</label>
+	  <%= f.text_area(:descripcion, class: 'form-control', :rows => 5, :required => true ) %>
+	</div>
+</div><!-- /form-row -->
+<div class="form-row">
+	<div class="form-group col-md-6">
+	  <label for="nombre">Nombre</label>
+	  <%= f.text_field(:nombre, class: 'form-control', :required => true) %>
+	</div>
+	<div class="form-group col-md-6">
+	  <label for="nombre">Proveedor</label>
+	   <%= f.collection_select :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	</div>
+</div><!-- /form-row -->
+<div class="form-row">
+	<div class="form-group col-md-4">
+	  <label for="precio">Precio</label>
+	  <%= f.text_field(:precio, class: 'form-control', :required => true) %>
+	</div>
+	<div class="form-group col-md-4">
+	  <label for="euro">Euro</label>
+	  <%= f.text_field(:euro, class: 'form-control') %>
+	</div>
+	<div class="form-group col-md-4">
+	  <label for="direccion">Dólar</label>
+	  <%= f.text_field(:dolar, class: 'form-control') %>
+	</div>
+</div><!-- /form-row -->
+

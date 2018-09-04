@@ -1,0 +1,17 @@
+<main class="proforma">
+
+	<h1>Editar Factura Proforma</h1>
+	
+	<div class="new-proforma-container">
+
+		<%= form_for(@proforma) do |f| %>
+
+		<%= render(:partial => 'form', :locals => {:f => f}) %>
+
+		<%= f.submit("Editar") %>
+	  	
+		<% end %>
+		
+	</div><!-- /new-proforma-container -->
+
+</main>

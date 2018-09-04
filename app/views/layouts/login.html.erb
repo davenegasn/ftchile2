@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fchile - <%= @page_title || "Dashboard" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    	<div class="row">
+        <%= render 'layouts/sidebar-no-menu' %>
+        <div class="col-md-10" style="padding-left:0;">
+    			<%= render 'layouts/header' %>
+          <div class="login-notice">
+            <% if !flash[:notice].blank? %>
+            <%= flash[:notice] %>
+            <% end %>
+          </div><!-- /login-notice -->
+    	    <%= yield %>
+    	  </div><!-- /col-md-12 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </body>
+</html>

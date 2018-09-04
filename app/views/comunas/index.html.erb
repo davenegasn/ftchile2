@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Comunas</h1>
+			<%= link_to("Añadir comuna", new_comuna_path, :class => 'action new') %>
+		</div><!-- /col-md-12 -->
+	</div><!-- /row -->
+
+	<div class="row">
+		<div class="col">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Nombre</th>
+			      <th scope="col"></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% @comunas.each do |comuna| %>
+			    <tr>
+			      <th scope="row"><%= comuna.id %></th>
+			      <td><%= comuna.nombre %></td>
+			      
+			      <td>
+			      	<%= link_to("editar", edit_comuna_path(comuna), :class => 'action edit') %>
+			      	<%= link_to("ver", comuna_path(comuna), :class => 'action show') %>
+			      	<%= link_to("eliminar", delete_comuna_path(comuna), :class => 'action delete') %>
+			      </td>
+			    </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div><!-- /col -->
+	</div><!-- /row -->
+</div><!-- /container -->

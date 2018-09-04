@@ -1,0 +1,44 @@
+<main>
+
+	<h1>Proveedores</h1>
+	<%= link_to("Añadir proveedor", new_supplier_path, :class => 'action new btn btn-light') %>
+	
+	<table class="table" style="margin-top: 10px;">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Descripción</th>
+	      <th scope="col">Nombre</th>
+	      <th scope="col">País</th>
+	      <th scope="col">Ciudad</th>
+	      <th scope="col">Comuna</th>
+	      <th scope="col">Dirección</th>
+	      <th scope="col">Teléfono</th>
+	      <th scope="col">Email</th>
+	      <th scope="col">Logo</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @suppliers.each do |proveedor| %>
+	    <tr>
+	      <th scope="row"><%= proveedor.id %></th>
+	      <td>
+
+	      	<%= proveedor.descripcion %>
+	      	<%= link_to("editar", edit_supplier_path(proveedor), :class => 'btn btn-outline-warning btn-sm') %>
+	      </td>
+	      <td><%= proveedor.nombre %></td>
+	      <td>-</td>
+	      <td>-</td>
+	      <td><%= proveedor.comuna.try(:nombre) %></td>
+	      <td><%= proveedor.direccion %></td>
+	      <td><%= proveedor.telefono %></td>
+	      <td><%= proveedor.email %></td>
+	      <td><%= proveedor.logo %></td>
+	     	<td></td>
+	    </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</main>

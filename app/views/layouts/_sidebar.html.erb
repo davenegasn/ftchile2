@@ -1,0 +1,31 @@
+<aside class="col-md-2 d-none d-md-block bg-dark sidebar">
+	<ul style="margin: 0;padding: 0;">
+		<li class="logo"><%= image_tag("logo_white.png", class: "logo_main") %></li>
+		<ul class="menu">
+			<li class="head"><span><%= icon('fas', 'file') %> Proformas</span>
+				<ul>
+					<li><%= link_to("Todas las proformas", proformas_path(), :class => '') %></li>
+					<li><%= link_to("Agregar proforma", new_proforma_path(), :class => '') %></li>
+				</ul>
+			</li>
+			<li class="head"><span><%= icon('fas', 'user') %> Clientes</span>
+				<ul>
+					<li><%= link_to("Todos los clientes", clientes_path(), :class => '') %></li>
+					<li><%= link_to("Agregar cliente", new_cliente_path(), :class => '') %></li>
+				</ul>
+			</li>
+			<li class="head"><span><%= icon('fas', 'user-tie') %> Provedores</span>
+				<ul>
+					<li><%= link_to("Todos los proveedores", suppliers_path(), :class => '') %></li>
+					<li><%= link_to("Agregar proveedor", new_supplier_path(), :class => '') %></li>
+				</ul>
+			</li>
+			<li class="head"><span><%= icon('fas', 'shopping-cart') %> Artículos</span>
+				<ul>
+					<li><%= link_to("Todos los artículos", articles_path(), :class => '') %></li>
+					<li><%= link_to("Agregar artículo", new_article_path(), :class => '') %></li>
+				</ul>
+			</li>
+		</ul>
+	</ul>
+</aside>

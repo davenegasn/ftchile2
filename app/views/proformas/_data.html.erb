@@ -1,0 +1,43 @@
+<div class="row">
+
+	<div class="col-md-6">
+
+		<div class="data-container client-data-container">
+
+			<h3>Cliente</h3>
+
+			<div class="form-row"> 
+
+				<div class="form-group col-md-12">
+
+				  <label for="nombre">Seleccionar cliente</label>
+					<%= collection_select :post, :cliente_id, Cliente.all, :id, :name_with_initial, {}, {:class => 'form-control'} %>
+					<button id="pop-client" type="button" class="btn btn-success">Seleccionar</button>
+
+				</div><!-- /form-group -->
+
+			</div><!-- /form-row -->
+
+		</div><!-- /data-container -->
+
+	</div><!-- /col-md-6 -->
+
+	<div class="col-md-6">
+
+		<div class="data-container supplier-data-container">
+
+			<h3>Proveedor</h3>
+
+			<div class="form-row">
+				<div class="form-group col-md-12">
+				  <label for="nombre">Seleccionar proveedor</label>
+					<%= collection_select :post, :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
+					<button id="pop-supplier" type="button" class="btn btn-success">Seleccionar</button>
+				</div><!-- /form-group -->
+			</div><!-- /form-row -->
+
+		</div><!-- /data-container -->
+
+	</div><!-- /col-md-6 -->
+
+</div><!-- /row -->

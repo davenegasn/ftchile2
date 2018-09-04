@@ -1,0 +1,8 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Cliente: <%= @cliente.nombre %> <%= @cliente.apellido_paterno%> <%= @cliente.apellido_materno%></h1>
+			<%= link_to("Volver", clientes_path, :class => 'action index') %>
+		</div>
+	</div>
+</div>

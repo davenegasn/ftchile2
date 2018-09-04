@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fchile - <%= @page_title || "Dashboard" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+    	<div class="row">
+    		<%= render 'layouts/sidebar' %>
+    		<div class="col-md-10" style="padding-left:0;">
+    			<%= render 'layouts/header' %>
+          <% if !flash[:notice].blank? %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= flash[:notice] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <% end %>
+    	    <%= yield %>
+    	  </div>
+      </div>
+    </div>
+  </body>
+</html>

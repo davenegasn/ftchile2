@@ -1,0 +1,11 @@
+<main>
+	<h1>Añadir cliente</h1>
+	<%= form_for(@cliente) do |f| %>
+	<%= render(:partial => 'form', :locals => {:f => f}) %>
+	<div class="form-row">
+		<div class="form-group col-md-12">
+		  <%= f.submit("Añadir") %>
+		</div>
+	</div><!-- /form-row -->
+	<% end %>
+</main>		

@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Eliminar cliente</h1>
+			<%= link_to("Volver", clientes_path, :class => 'action index') %>
+
+			<%= form_for(@cliente, :method => 'delete') do |f| %>
+			<p><¿Está seguro que desea eliminar éste cliente?</p>
+			<p><%= f.object.nombre %> <%= f.object.apellido_paterno %></p>
+			<%= f.submit("Eliminar") %>
+			<% end %>
+		</div>
+	</div>
+</div>

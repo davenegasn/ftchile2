@@ -1,0 +1,31 @@
+<main>
+
+	<h1>Proformas</h1>
+	<%= link_to("Añadir cliente", new_cliente_path, :class => 'action new btn btn-light') %>
+	
+	<table class="table" style="margin-top: 10px;">
+	  <thead>
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Cliente</th>
+	      <th scope="col">Proveedor</th>
+	      <th scope="col">Subtotal</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @proformas.each do |proforma| %>
+	    <tr>
+	      <th scope="row"><%= proforma.id %></th>
+	      <td><%= proforma.nombre_cliente %>
+	      	<br>
+	      	
+		    <%= link_to("editar", edit_proforma_path(proforma), :class => 'action edit btn btn-outline-warning btn-sm') %>
+	      </td>
+	      <td><%= proforma.nombre_proveedor %></td>
+	      <td><%= proforma.subtotal_producto %></td>
+	    </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+</main>

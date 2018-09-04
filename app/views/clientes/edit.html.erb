@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Editar cliente</h1>
+			<%= form_for(@cliente) do |f| %>
+			<%= render(:partial => 'form', :locals => {:f => f}) %>
+			<div class="form-row">
+				<div class="form-group col-md-12">
+				  <%= f.submit("Editar") %>
+				</div>
+			</div><!-- /form-row -->
+			<% end %>
+		</div><!-- /col-md-12 -->
+	</div>
+</div>

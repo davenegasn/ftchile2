@@ -1,0 +1,102 @@
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html, body, .container, .container-fluid, .row{
+	height:100%;
+	font-family: 'Open Sans', sans-serif;
+}
+h1{
+	font-size:2rem;
+}
+.data-container{
+	border: 1px solid #dee2e6;
+	padding: 10px;
+}
+.login{
+	max-width:400px;
+	margin:0 auto;
+}
+.login-notice{
+	max-width: 400px;
+	margin: 100px auto 20px auto;
+	font-size: .9em;
+	padding: 10px;
+	border: 1px solid #e7e7e7;
+	text-align: center;
+	background-color: #f6f6f6;
+}
+.login label{
+	display:block;
+}
+aside {
+	padding:0 !important;
+
+	.logo_main{
+		max-height: 35px;
+		display: block;
+		margin: 0 auto;
+	}
+	ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	ul li.logo{
+		padding: 10px;
+	}
+
+	ul.menu{
+		.head{
+			font-weight:bolder;
+			color:#fff;
+			span{
+				display:block;
+				padding:5px 10px;
+				border-top: 1px solid #23272c;
+				border-bottom: 1px solid #23272c;
+			}
+			a{
+				font-weight:lighter;
+				color:#fff;
+				display:block;
+				padding: 5px 10px;
+				font-size: .9em;
+			}
+
+			ul{
+				background-color:#23272c;
+			}
+		}
+	}
+}
+
+main{
+	padding:20px;
+}
+
+table{
+	.btn-group a{
+		text-transform:uppercase;
+	}
+}
+
+/* Proforma */
+
+.proforma{
+	
+	h3{
+		font-size:1.5rem;
+	}
+	
+	.new-proforma-container{
+		padding-top: 10px;
+		margin-top: 10px;
+
+		select{
+			margin-bottom:20px;
+		}
+	}
+
+}	

@@ -1,0 +1,11 @@
+<main>
+	<h1>Añadir proveedor</h1>
+	<%= form_for(@supplier) do |f| %>
+	<%= render(:partial => 'form', :locals => {:f => f}) %>
+	<div class="form-row">
+		<div class="form-group col-md-12">
+		  <%= f.submit("Añadir") %>
+		</div>
+	</div><!-- /form-row -->
+	<% end %>
+</main>		
