@@ -37,8 +37,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-sass', '~> 5.0.13'
+#respond_to addon
 gem 'responders'
-gem 'prawn'
+#PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
