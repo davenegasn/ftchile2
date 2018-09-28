@@ -1,5 +1,4 @@
 class ProformasController < ApplicationController
-  
   respond_to :html, :js
   
   def index
@@ -7,6 +6,16 @@ class ProformasController < ApplicationController
   end
 
   def show
+    @proforma = Proforma.find(params[:id])
+    @nombre_proforma = "factura-#{@proforma.id}"
+    respond_to do |format|
+      format.html 
+      format.pdf do
+        render template: 'proformas/factura', 
+        pdf: @nombre_proforma
+        #save_to_file: Rails.root.join('public', 'proformas', "proforma-#{@proforma.id}.pdf")
+      end
+    end
   end
 
   def new

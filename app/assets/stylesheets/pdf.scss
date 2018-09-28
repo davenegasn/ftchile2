@@ -1,0 +1,42 @@
+@import "bootstrap";
+table{
+	width:100%;
+}
+.times{
+	font-family: Times;
+}
+.blue{
+	color:#1E5799;
+}
+table.header {
+	border-bottom:2px solid #000;
+}
+
+table.header td{
+	vertical-align:bottom;
+	border-bottom:1px solid #fff;
+
+}
+table.header tr{
+	padding-bottom:5px;
+}
+table.header .logo{
+	text-align:right;
+}
+table.meta{
+	margin-top:10px;
+}
+table.meta h3{
+	color:#1E5799;
+	font-size:16px;
+}
+table.meta h4{
+	font-size:16px;
+	margin-top:10px;
+	text-transform:uppercase;
+	paddig-top:5px;
+}
+table .data{
+	font-weight:bolder;
+	text-transform:uppercase;
+}

@@ -6,20 +6,102 @@
    		<%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
 	</head>
 	<body>
-		<table class="table">
+		<table class="header">
 			<tr>
-				<td>
-					<h5>Factura Proforma</h5>
+				<td width="50%">
+					Factura Proforma
 				</td>
-				<td>
-					<%= @proforma.image %>
+				<td width="50%" class="logo">
+					<%= wicked_pdf_image_tag('/proformas/logo.png') %>
+				</td>
+			</tr>
+		</table>
+		
+		<table class="meta">
+			<tr>
+				<td width="50%">
+					<h3>FRIUL TRADE</h3>
+					Dirección Capitán Orella #2304 Ñuñoa
+					<table class="times">
+						<tr>
+							<td>Ciudad</td>
+							<td>Santiago</td>
+						</tr>
+						<tr>
+							<td>Teléfono</td>
+							<td>(56 2) 343 0423</td>
+						</tr>
+						<tr>
+							<td>Fax</td>
+							<td>(56 2) 341 3254</td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td>fte@friultradechile.cl</td>
+						</tr>
+					</table>
+
+					<h4>Datos del cliente</h4>
+					
+					<table class="cliente">
+						<tr>
+							<td>Nombre</td>
+							<td class="data">
+								<%= @proforma.nombre_cliente %>
+								<%= @proforma.apellidos_cliente %>
+							</td>
+						</tr>
+						<tr>
+							<td>Dirección</td>
+							<td class="data"><%= @proforma.direccion_cliente %></td>
+						</tr>
+						<tr>
+							<td>Ciudad-País</td>
+							<td class="data"><%= @proforma.comuna_cliente %></td>
+						</tr>
+						
+					</table>
+					 
+				</td>
+				<td width="50%"">
+
+					<table style="margin-top: 50px;">
+						<tr>
+							<td class="blue">Fecha de emisión</td>
+							<td><%= @proforma.created_at %></td>
+						</tr>
+						<tr>
+							<td class="blue">Plazo de entrega</td>
+							<td>35 días desp de aprobación</td>
+						</tr>
+					</table>
+
+					<h4 style="margin-top: 60px;">Datos del proveedor</h4>
+
+					<table class="proveedor">
+						<tr>
+							<td>Nombre</td>
+							<td class="data">
+								<%= @proforma.nombre_proveedor %>
+							</td>
+						</tr>
+						<tr>
+							<td>Dirección</td>
+							<td class="data"><%= @proforma.direccion_proveedor %></td>
+						</tr>
+						<tr>
+							<td>Ciudad-País</td>
+							<td class="data"><%= @proforma.comuna_proveedor %></td>
+						</tr>
+						
+					</table>
 				</td>
 			</tr>
 		</table>
 		<header>
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
-					
+					1
 				</div>
 				<div class="col-md-6 col-lg">
 					Logo
