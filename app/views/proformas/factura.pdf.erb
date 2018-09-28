@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PDF</title>
+		<meta charset='utf-8' />
+   		<%= stylesheet_link_tag wicked_pdf_asset_base64("pdf") %>
+	</head>
+	<body>
+		<table class="table">
+			<tr>
+				<td>
+					<h5>Factura Proforma</h5>
+				</td>
+				<td>
+					<%= @proforma.image %>
+				</td>
+			</tr>
+		</table>
+		<header>
+			<div class="row">
+				<div class="col-md-6 col-lg-6">
+					
+				</div>
+				<div class="col-md-6 col-lg">
+					Logo
+				</div>
+			</div>
+		</header>
+		<h1>Proforma #<%= @proforma.id %></h1>
+	</body>
+</html>

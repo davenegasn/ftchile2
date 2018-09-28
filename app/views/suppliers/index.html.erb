@@ -1,4 +1,4 @@
-<main>
+<main class="supplier index">
 
 	<h1>Proveedores <%= link_to("Añadir proveedor", new_supplier_path, :class => 'action new btn btn-outline-success btn-small') %></h1>
 	
@@ -23,7 +23,7 @@
 			<td><%= proveedor.comuna.try(:nombre) %></td>
 			<td><%= proveedor.telefono %></td>
 			<td><%= proveedor.email %></td>
-			<td><%= image_tag proveedor.image.url(:table) %></td>
+			<td class="logo-preview"><%= image_tag proveedor.image_url.to_s %></td>
 	    	<td>
 	    		<%= link_to("ver / editar", edit_supplier_path(proveedor), :class => 'btn btn-outline-primary btn-sm') %>
 	    		<%= link_to("eliminar", delete_supplier_path(proveedor), :class => 'btn btn-outline-danger btn-sm') %>
