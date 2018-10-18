@@ -37,7 +37,7 @@ class ProformasController < ApplicationController
     @proforma = Proforma.new
   end
 
-  def create
+  def create 
     @proforma = Proforma.new(proforma_params)
     if @proforma.save
       redirect_to(proformas_path)
@@ -53,9 +53,17 @@ class ProformasController < ApplicationController
   end
 
   def update
+    @proforma = Proforma.find(params[:id])
+    if @proforma.update_attributes(proforma_params)
+      redirect_to(proforma_path(@proforma))
+    else 
+      flash[:notice] = @proforma.errors.full_messages.to_sentence
+      render('edit')
+    end 
   end 
 
   def delete
+     @proforma = Proforma.find(params[:id])
   end
 
   def destroy

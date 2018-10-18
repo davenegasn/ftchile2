@@ -15,8 +15,8 @@
 	  	<% @proformas.each do |proforma| %>
 	    <tr>
 	      	<th scope="row"><%= proforma.id %></th>
-	      	<td><%= proforma.cliente.nombre %></td>
-	      	<td><%= proforma.supplier.nombre %></td>
+	      	<td><%= proforma.cliente.try(:nombre) %></td>
+	      	<td><%= proforma.supplier.try(:nombre) %></td>
 	      	<td><%= proforma.created_at %></td>
 	      	<td>
 	      		<%= link_to("añadir artículos", proforma_path(proforma), :class => 'btn btn-outline-success btn-sm') %>
