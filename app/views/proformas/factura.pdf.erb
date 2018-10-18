@@ -41,23 +41,23 @@
 						</tr>
 					</table>
 
-					<h4>Datos del cliente</h4>
+					<h4 style="margin-top: 30px;">Datos del cliente</h4>
 					
 					<table class="cliente">
 						<tr>
 							<td>Nombre</td>
 							<td class="data">
-								<%= @proforma.nombre_cliente %>
-								<%= @proforma.apellidos_cliente %>
+								<%= @cliente.nombre %>
+								<%= @cliente.apellido_paterno %>
 							</td>
 						</tr>
 						<tr>
 							<td>Dirección</td>
-							<td class="data"><%= @proforma.direccion_cliente %></td>
+							<td class="data"><%= @cliente.direccion %></td>
 						</tr>
 						<tr>
 							<td>Ciudad-País</td>
-							<td class="data"><%= @proforma.comuna_cliente %></td>
+							<td class="data"><%= @cliente.comuna.nombre %></td>
 						</tr>
 						
 					</table>
@@ -82,32 +82,51 @@
 						<tr>
 							<td>Nombre</td>
 							<td class="data">
-								<%= @proforma.nombre_proveedor %>
+								<%= @supplier.nombre %>
 							</td>
 						</tr>
 						<tr>
 							<td>Dirección</td>
-							<td class="data"><%= @proforma.direccion_proveedor %></td>
+							<td class="data"><%= @supplier.direccion %></td>
 						</tr>
 						<tr>
 							<td>Ciudad-País</td>
-							<td class="data"><%= @proforma.comuna_proveedor %></td>
+							<td class="data"><%= @supplier.comuna.nombre %></td>
 						</tr>
 						
 					</table>
 				</td>
 			</tr>
 		</table>
-		<header>
-			<div class="row">
-				<div class="col-md-6 col-lg-6">
-					1
-				</div>
-				<div class="col-md-6 col-lg">
-					Logo
-				</div>
-			</div>
-		</header>
-		<h1>Proforma #<%= @proforma.id %></h1>
+
+		<hr>
+		
+		<table class="articles">
+			<tr style="border-bottom: 1px solid #000">
+				<td width="70%" class="data">Nombre</td>
+				<td width="15%" class="data" style="text-align: center;">Cantidad</td>
+				<td width="15%" class="data" style="text-align: center;">P.Unitario</td>
+				<td width="15%" class="data" style="text-align: center;">Subtotal</td>
+			</tr>
+			<% @subtotals = [] #aray para sumar subtotales %>
+			<% @proforma_articles.each do |article| %>
+			<tr>
+				<td><%= article.nombre %></td>
+				<% 
+				@article_proforma = article.article_proformas.find_by(article_id: article.id) %>
+				<td style="text-align: center;"><%= @article_proforma.quantity %></td>
+				<td style="text-align: center;"><%= article.precio %></td>
+				<td style="text-align: center;"><%= @article_proforma.subtotal %></td>
+				<% @subtotals << @article_proforma.subtotal %>
+			</tr>
+			<% end %>
+			<tr>
+				<td></td>
+				<td></td>
+				<td style="text-align: center;" class="data">Total</td>
+				<td style="text-align: center;"><%= @subtotals.sum %></td>
+			</tr>
+		</table>
+		
 	</body>
 </html>

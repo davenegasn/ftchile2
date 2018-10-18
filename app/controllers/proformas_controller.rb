@@ -7,7 +7,21 @@ class ProformasController < ApplicationController
 
   def show
     @proforma = Proforma.find(params[:id])
+    
+    #supplier y cliente de la proforma
+    @supplier = Supplier.find(@proforma.supplier_id)
+    @cliente = Cliente.find(@proforma.clientes_id)
+
+    #articulos asociados al supplier actual
+    @articles = @supplier.articles
+
+    #generar una nueva relacion article-proforma
+    @articleproforma = ArticleProforma.new
+    #obtener todos los articulos de la proforma actual
+    @proforma_articles = @proforma.articles
+
     @nombre_proforma = "factura-#{@proforma.id}"
+
     respond_to do |format|
       format.html 
       format.pdf do
@@ -61,7 +75,7 @@ class ProformasController < ApplicationController
 
   private
   def proforma_params
-    params.require(:proforma).permit(:nombre_cliente, :apellidos_cliente, :direccion_cliente, :comuna_cliente, :nombre_proveedor, :direccion_proveedor,:comuna_proveedor, :nombre_producto, :cantidad_producto, :subtotal_producto)
+    params.require(:proforma).permit(:codigo, :clientes_id, :supplier_id)
   end 
 
 end

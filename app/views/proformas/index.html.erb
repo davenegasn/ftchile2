@@ -8,8 +8,6 @@
 	      <th scope="col">#</th>
 	      <th scope="col">Cliente</th>
 	      <th scope="col">Proveedor</th>
-	      <th scope="col">Comuna</th>
-	      <th scope="col">Subtotal</th>
 	      <th scope="col">Fecha</th>
 	    </tr>
 	  </thead>
@@ -17,13 +15,12 @@
 	  	<% @proformas.each do |proforma| %>
 	    <tr>
 	      	<th scope="row"><%= proforma.id %></th>
-	      	<td><%= proforma.nombre_cliente %></td>
-	      	<td><%= proforma.nombre_proveedor %></td>
-	      	<td><%= proforma.comuna_proveedor %></td>
-	      	<td><%= proforma.subtotal_producto %></td>
+	      	<td><%= proforma.cliente.nombre %></td>
+	      	<td><%= proforma.supplier.nombre %></td>
 	      	<td><%= proforma.created_at %></td>
 	      	<td>
-	    		<%= link_to("ver / editar", edit_proforma_path(proforma), :class => 'btn btn-outline-primary btn-sm') %>
+	      		<%= link_to("añadir artículos", proforma_path(proforma), :class => 'btn btn-outline-success btn-sm') %>
+	    		<%= link_to("editar proforma", edit_proforma_path(proforma), :class => 'btn btn-outline-primary btn-sm') %>
 	    		<%= link_to("eliminar", delete_proforma_path(proforma), :class => 'btn btn-outline-danger btn-sm') %>
 	    	</td>
 	    </tr>

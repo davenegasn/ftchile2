@@ -1,103 +1,18 @@
-<div class="row">
+<div class="form-row">
+	<div class="form-group col-md-6">
+		<label for="nombre">Código</label>
+	   	<%= f.text_field(:codigo, class: 'form-control', :required => true) %>
+	</div>
+</div>
+<div class="form-row">
+	<div class="form-group col-md-6">
+		<label for="nombre">Cliente</label>
+	   	<%= f.collection_select :clientes_id, Cliente.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	</div>
+	<div class="form-group col-md-6">
+	  	<label for="nombre">Proveedor</label>
+	   	<%= f.collection_select :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	</div>
+</div>
 
-		<div class="col-md-6">
-
-			<div class="data-container supplier-data-container">
-
-				<div class="form-row">
-
-					<div class="form-group col-md-6">
-						<label for="nombre">Nombre</label>
-						<%= f.text_field(:nombre_cliente, id: 'clientes_nombre', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-
-					<div class="form-group col-md-6">
-						<label for="nombre">Apellidos</label>
-						<%= f.text_field(:apellidos_cliente, id: 'clientes_apellidos', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-
-					<div class="form-group col-md-6">
-						<label for="nombre">Dirección</label>
-					  	<%= f.text_field(:direccion_cliente, id: 'clientes_direccion', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-
-					<div class="form-group col-md-6">
-						<label for="nombre">Comuna</label>
-					  	<%= f.text_field(:comuna_cliente, id: 'clientes_comuna', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-
-				</div><!-- /form-row -->
-
-			</div><!-- /client-data-container -->
-
-		</div><!-- /col-md-6 -->
-
-		<div class="col-md-6">
-
-			<div class="data-container supplier-data-container">
-		
-				<div class="form-row">
-					<div class="form-group col-md-12">
-						<label for="nombre">Nombre</label>
-						<%= f.text_field(:nombre_proveedor, id: 'proveedor_nombre', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-					<div class="form-group col-md-6">
-						<label for="nombre">Dirección</label>
-						<%= f.text_field(:direccion_proveedor, id: 'proveedor_direccion', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-					<div class="form-group col-md-6">
-						<label for="nombre">Comuna</label>
-						<%= f.text_field(:comuna_proveedor, id: 'proveedor_comuna', class: 'form-control', :readonly => true) %>
-					</div><!-- /form-group -->
-
-				</div><!-- /form-row -->
-
-			</div><!-- /supplier-data-containr -->
-				
-		</div><!-- /col-md-6 -->
-
-	</div><!-- /row -->
-
-	<div class="row">
-
-		<div class="col-md-12">
-
-			<h3>Productos</h3>
-
-			<table class="table" style="margin-top: 10px;">
-			  <thead>
-			    <tr>
-			      <th scope="col">#</th>
-			      <th width="50%" scope="col">Producto</th>
-			      <th  width="20%" scope="col">Cantidad</th>
-			      <th scope="col" style="text-align: center;">Subtotal</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      	<th scope="row">1</th>
-			      	<td width="50%">
-						
-			      		<%= f.collection_select :nombre_producto, Article.all, :id, :nombre, {:prompt=>true}, {:class=>'form-control', :id=>'article_selected' } %>
-
-					</td>
-			      	<td width="20%">
-			      		<div class="form-row">
-							<div class="form-group col-md-8">
-								<%= f.text_field(:cantidad_producto, id: 'qty', class: 'input-number', value: 1, min: 0, max: 1000, type: 'number', style: 'width:100%') %>
-								
-							</div>
-							<div class="form-group col-md-4">
-								<button id="article-sum" class="btn btn-sm btn-success">Añadir</button>
-							</div>
-						</div>
-			      	</td>
-			      	<td style="text-align: center;"><%= f.text_field(:subtotal_producto, id: 'subtotal', class: 'form-control', :readonly => true) %></td>
-			    </tr>
-			  </tbody>
-			</table>
-			
-
-		</div><!-- /col-md-12 -->
-	</div><!-- /row -->
 

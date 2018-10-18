@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928003113) do
+ActiveRecord::Schema.define(version: 20181016131326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_proformas", force: :cascade do |t|
+    t.integer  "article_id"
+    t.integer  "proforma_id"
+    t.integer  "subtotal"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "quantity"
+    t.index ["article_id", "proforma_id"], name: "index_article_proformas_on_article_id_and_proforma_id", using: :btree
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "nombre"
@@ -25,6 +35,16 @@ ActiveRecord::Schema.define(version: 20180928003113) do
     t.datetime "updated_at",  null: false
     t.integer  "supplier_id"
     t.index ["supplier_id"], name: "index_articles_on_supplier_id", using: :btree
+  end
+
+  create_table "articles_proformas", force: :cascade do |t|
+    t.integer  "total"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "article_id"
+    t.integer  "proforma_id"
+    t.index ["article_id"], name: "index_articles_proformas_on_article_id", using: :btree
+    t.index ["proforma_id"], name: "index_articles_proformas_on_proforma_id", using: :btree
   end
 
   create_table "cities", force: :cascade do |t|
@@ -43,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180928003113) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "comuna_id"
+    t.string   "comuna"
     t.index ["comuna_id"], name: "index_clientes_on_comuna_id", using: :btree
   end
 
@@ -53,19 +74,14 @@ ActiveRecord::Schema.define(version: 20180928003113) do
   end
 
   create_table "proformas", force: :cascade do |t|
-    t.string   "nombre_cliente"
-    t.string   "apellidos_cliente"
-    t.string   "direccion_cliente"
-    t.string   "comuna_cliente"
-    t.string   "nombre_proveedor"
-    t.string   "direccion_proveedor"
-    t.string   "comuna_proveedor"
-    t.string   "id_producto"
-    t.string   "nombre_producto"
-    t.string   "cantidad_producto"
-    t.string   "subtotal_producto"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "total"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "supplier_id"
+    t.integer  "clientes_id"
+    t.integer  "codigo"
+    t.index ["clientes_id"], name: "index_proformas_on_clientes_id", using: :btree
+    t.index ["supplier_id"], name: "index_proformas_on_supplier_id", using: :btree
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -93,6 +109,10 @@ ActiveRecord::Schema.define(version: 20180928003113) do
   end
 
   add_foreign_key "articles", "suppliers"
+  add_foreign_key "articles_proformas", "articles"
+  add_foreign_key "articles_proformas", "proformas"
   add_foreign_key "clientes", "comunas"
+  add_foreign_key "proformas", "clientes", column: "clientes_id"
+  add_foreign_key "proformas", "suppliers"
   add_foreign_key "suppliers", "comunas"
 end
