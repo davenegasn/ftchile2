@@ -1,6 +1,6 @@
 class Cliente < ApplicationRecord
 	belongs_to :comuna
-	has_many :proformas
+	has_many :proformas, through: :proformas 
 	scope :sorted, lambda { order("id ASC") }
 
 	def name_with_initial
