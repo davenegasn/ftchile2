@@ -1,5 +1,5 @@
 <div class="form-row">
-	<div class="form-group col-md-6">
+	<div class="form-group col-md-3">
 		<label for="nombre">Código</label>
 	   	<%= f.text_field(:codigo, class: 'form-control', :required => true) %>
 	</div>
@@ -7,11 +7,12 @@
 <div class="form-row">
 	<div class="form-group col-md-6">
 		<label for="nombre">Cliente</label>
-	   	<%= f.collection_select :clientes_id, Cliente.all, :id, :nombre, {}, {:class => 'form-control'} %>
+		<%= f.select(:clientes_id, options_for_select(Cliente.all.map{|s|[s.nombre, s.id]}) , {:include_blank => "Seleccionar cliente"}, { :class => "form-control" }) %>
 	</div>
 	<div class="form-group col-md-6">
 	  	<label for="nombre">Proveedor</label>
-	   	<%= f.collection_select :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	  	<%= f.select(:supplier_id, options_for_select(Supplier.all.map{|s|[s.nombre, s.id]}) , {:include_blank => "Seleccionar proveedor"}, { :class => "form-control" }) %>
+	   
 	</div>
 </div>
 
