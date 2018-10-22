@@ -34,6 +34,8 @@ class ProformasController < ApplicationController
 
   def new
     @articles = Article.all
+    @suppliers = Supplier.all
+    @clientes = Cliente.all
     @proforma = Proforma.new
   end
 
