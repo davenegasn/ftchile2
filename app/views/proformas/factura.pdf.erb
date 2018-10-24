@@ -12,7 +12,7 @@
 					Factura Proforma
 				</td>
 				<td width="50%" class="logo">
-					<%= wicked_pdf_image_tag('/proformas/logo.png') %>
+					<%= wicked_pdf_image_tag(@supplier.image_url) %>
 				</td>
 			</tr>
 		</table>
@@ -66,6 +66,10 @@
 				<td width="50%"">
 
 					<table style="margin-top: 50px;">
+						<tr>
+							<td class="blue">Código</td>
+							<td><%= @proforma.codigo %></td>
+						</tr>
 						<tr>
 							<td class="blue">Fecha de emisión</td>
 							<td><%= @proforma.created_at %></td>

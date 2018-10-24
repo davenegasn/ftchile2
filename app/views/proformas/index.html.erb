@@ -19,6 +19,7 @@
 	      	<td><%= proforma.supplier.try(:nombre) %></td>
 	      	<td><%= proforma.created_at %></td>
 	      	<td>
+	      		<%= link_to("pdf", proforma_path(proforma,:format => :pdf), :class => 'btn btn-outline-warning btn-sm') %>
 	      		<%= link_to("añadir artículos", proforma_path(proforma), :class => 'btn btn-outline-success btn-sm') %>
 	    		<%= link_to("editar proforma", edit_proforma_path(proforma), :class => 'btn btn-outline-primary btn-sm') %>
 	    		<%= link_to("eliminar", delete_proforma_path(proforma), :class => 'btn btn-outline-danger btn-sm') %>
