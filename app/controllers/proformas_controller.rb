@@ -10,7 +10,7 @@ class ProformasController < ApplicationController
     
     #supplier y cliente de la proforma
     @supplier = Supplier.find(@proforma.supplier_id)
-    @cliente = Cliente.find(@proforma.clientes_id)
+    @cliente = Cliente.find(@proforma.cliente_id)
 
     #articulos asociados al supplier actual
     @articles = @supplier.articles
@@ -34,8 +34,7 @@ class ProformasController < ApplicationController
 
   def new
     @articles = Article.all
-    @suppliers = Supplier.all
-    @clientes = Cliente.all
+    
     @proforma = Proforma.new
   end
 
@@ -85,7 +84,7 @@ class ProformasController < ApplicationController
 
   private
   def proforma_params
-    params.require(:proforma).permit(:clientes_id, :codigo, :supplier_id) 
+    params.require(:proforma).permit(:codigo, :supplier_id, :cliente_id) 
   end 
 
 end
