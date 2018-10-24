@@ -85,7 +85,7 @@ class ProformasController < ApplicationController
 
   private
   def proforma_params
-    params.require(:proforma).permit(:codigo, :clientes_id, :supplier_id) 
+    params.require(:proforma).permit(:clientes_id, :codigo, :supplier_id) 
   end 
 
 end
