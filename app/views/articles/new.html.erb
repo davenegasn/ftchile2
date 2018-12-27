@@ -1,10 +1,11 @@
 <main>
-	<h1>Añadir artículo</h1>
+	<h1>Añadir artículo <%= link_to("Volver", articles_path, :class => 'action back btn btn-outline-primary btn-small') %></h1>
+	<hr>
 	<%= form_for(@article) do |f| %>
 	<%= render(:partial => 'form', :locals => {:f => f}) %>
 	<div class="form-row">
 		<div class="form-group col-md-12">
-		  <%= f.submit("Añadir") %>
+		  <%= f.submit("Añadir", class: "btn btn-success btn-small") %>
 		</div>
 	</div><!-- /form-row -->
 	<% end %>

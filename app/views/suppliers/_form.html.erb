@@ -13,7 +13,7 @@
 <div class="form-row">
 	<div class="form-group col-md-6">
 	  <label for="telefono">Comuna</label>
-	  <%= f.collection_select :comuna_id, Comuna.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	  <%= f.text_field(:ubicacion, class: 'form-control') %>
 	</div>
 	<div class="form-group col-md-6">
 	  <label for="apellido_paterno">Dirección</label>
@@ -36,3 +36,4 @@
 	  <%= f.file_field(:image, class: 'form-control') %>
 	</div>
 </div><!-- /form-row -->
+<hr>

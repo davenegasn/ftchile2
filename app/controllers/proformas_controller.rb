@@ -18,7 +18,8 @@ class ProformasController < ApplicationController
     #generar una nueva relacion article-proforma
     @articleproforma = ArticleProforma.new
     #obtener todos los articulos de la proforma actual
-    @proforma_articles = @proforma.articles
+    @articles_proforma = ArticleProforma.where(proforma_id: @proforma.id)
+    
 
     @nombre_proforma = "factura-#{@proforma.id}"
 
@@ -68,6 +69,9 @@ class ProformasController < ApplicationController
   end
 
   def destroy
+    @proforma = Proforma.find(params[:id])
+    @proforma.destroy
+    redirect_to(proformas_path)
   end 
 
   def get_ajax_cliente
@@ -84,7 +88,7 @@ class ProformasController < ApplicationController
 
   private
   def proforma_params
-    params.require(:proforma).permit(:codigo, :supplier_id, :cliente_id) 
+    params.require(:proforma).permit(:codigo, :supplier_id, :cliente_id,:peso_bruto, :peso_neto, :volumen, :embalaje, :observacion, :tipo_flete, :flete,:total) 
   end 
 
 end

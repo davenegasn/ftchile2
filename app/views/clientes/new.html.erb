@@ -1,10 +1,11 @@
 <main>
-	<h1>Añadir cliente</h1>
+	<h1>Añadir cliente <%= link_to("Volver", clientes_path, :class => 'action back btn btn-outline-primary btn-small') %></h1>
+	<hr>
 	<%= form_for(@cliente) do |f| %>
 	<%= render(:partial => 'form', :locals => {:f => f}) %>
 	<div class="form-row">
 		<div class="form-group col-md-12">
-		  <%= f.submit("Añadir") %>
+		   <%= f.submit("Añadir", class: "btn btn-success btn-small") %>
 		</div>
 	</div><!-- /form-row -->
 	<% end %>

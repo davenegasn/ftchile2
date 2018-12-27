@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181024031907) do
+ActiveRecord::Schema.define(version: 20181224223711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20181024031907) do
     t.integer  "codigo"
     t.integer  "cliente_id"
     t.integer  "supplier_id"
+    t.float    "peso_bruto"
+    t.float    "peso_neto"
+    t.integer  "volumen"
+    t.string   "embalaje"
+    t.string   "observacion"
+    t.float    "flete"
+    t.string   "tipo_flete"
     t.index ["cliente_id"], name: "index_proformas_on_cliente_id", using: :btree
     t.index ["supplier_id"], name: "index_proformas_on_supplier_id", using: :btree
   end
@@ -91,11 +98,16 @@ ActiveRecord::Schema.define(version: 20181024031907) do
     t.string   "email"
     t.text     "logo"
     t.text     "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "comuna_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "image"
-    t.index ["comuna_id"], name: "index_suppliers_on_comuna_id", using: :btree
+    t.string   "ubicacion"
+    t.string   "banco_nombre"
+    t.string   "banco_iban"
+    t.string   "banco_swift"
+    t.string   "banco_direccion"
+    t.string   "banco_abi"
+    t.string   "banco_cab"
   end
 
   create_table "users", force: :cascade do |t|
@@ -114,5 +126,4 @@ ActiveRecord::Schema.define(version: 20181024031907) do
   add_foreign_key "clientes", "comunas"
   add_foreign_key "proformas", "clientes"
   add_foreign_key "proformas", "suppliers"
-  add_foreign_key "suppliers", "comunas"
 end

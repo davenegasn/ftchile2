@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Eliminar artículo</h1>
+			<%= form_for(@articleproforma, :method => 'delete') do |f| %>
+			<p>¿Está seguro que desea eliminar el articulo de la proforma?</p>
+			<%= f.submit("Eliminar") %>
+			<% end %>
+		</div>
+	</div>
+</div>

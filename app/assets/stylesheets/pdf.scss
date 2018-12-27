@@ -2,6 +2,9 @@
 table{
 	width:100%;
 }
+bold{
+	font-weight:bold;
+}
 .times{
 	font-family: Times;
 }
@@ -33,7 +36,7 @@ table.meta h3{
 	color:#1E5799;
 	font-size:16px;
 }
-table.meta h4{
+h4{
 	font-size:16px;
 	margin-top:10px;
 	text-transform:uppercase;
@@ -46,4 +49,8 @@ table .data{
 table.articles{
 	margin-top:20px;
 	border-top:2px solid #000;
+	margin-bottom:50px;
+}
+table.final-values{
+	margin-top:50px;
 }

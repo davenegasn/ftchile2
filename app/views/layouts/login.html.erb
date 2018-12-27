@@ -14,12 +14,15 @@
         <%= render 'layouts/sidebar-no-menu' %>
         <div class="col-md-10" style="padding-left:0;">
     			<%= render 'layouts/header' %>
-          <div class="login-notice">
-            <% if !flash[:notice].blank? %>
-            <%= flash[:notice] %>
-            <% end %>
-          </div><!-- /login-notice -->
-    	    <%= yield %>
+          <div class="login-content">
+            <h2>Bienvenido</h2>
+            <div class="login-notice">
+              <% if !flash[:notice].blank? %>
+              <%= flash[:notice] %>
+              <% end %>
+            </div><!-- /login-notice -->
+      	    <%= yield %>
+          </div><!-- /login-content -->
     	  </div><!-- /col-md-12 -->
       </div><!-- /row -->
     </div><!-- /container -->

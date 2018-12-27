@@ -1,20 +1,90 @@
+<hr>
 <div class="form-row">
-	<div class="form-group col-md-3">
-		<label for="nombre">Código</label>
-	   	<%= f.text_field(:codigo, class: 'form-control', :required => true) %>
-	</div>
-</div>
-<div class="form-row">
-	<div class="form-group col-md-6">
-		<label for="nombre">Cliente</label>
-		<%= f.collection_select :cliente_id, Cliente.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	<div class="form-group col-md-4">
+		<label for="peso_neto">Código</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">COD</div>
+			</div>
+			<%= f.text_field(:codigo, class: 'form-control', :required => true) %>
+		</div>
 		
-	</div>
-	<div class="form-group col-md-6">
-	  	<label for="nombre">Proveedor</label>
+	</div><!-- /col-md-6 -->
+	<div class="form-group col-md-4">
+		<label for="cliente">Cliente</label>
+		<%= f.collection_select :cliente_id, Cliente.all, :id, :nombre, {}, {:class => 'form-control'} %>
+	</div><!-- /col-md-6 -->
+	<div class="form-group col-md-4">
+	  	<label for="proveedor">Proveedor</label>
 	  	<%= f.collection_select :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
-	  	
-	</div>
-</div>
+	</div><!-- /col-md-6 -->
+</div><!-- /form-row -->
 
+<hr>
 
+<h3>Información del envío</h3>
+
+<hr>
+
+<div class="form-row">
+	<div class="form-group col-md-4">
+		<label for="peso_bruto">Tipo de flete</label>
+		<%= f.select(:tipo_flete, [['Áereo', 'Aereo'], ['Terrestre', 'Terrestre'], ['Marítimo', 'Maritimo']], {},{:class => 'form-control'}) %>
+	</div><!-- /col-md-4 -->
+	<div class="col-md-4">
+		<label for="peso_neto">Peso neto</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">Kg</div>
+			</div>
+			<%= f.text_field(:peso_neto, class: 'form-control') %>
+		</div>
+	    
+	</div><!-- /col-md-4 -->
+	<div class="col-md-4">
+		<label for="peso_neto">Peso bruto</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">Kg</div>
+			</div>
+			<%= f.text_field(:peso_bruto, class: 'form-control') %>
+		</div>
+	</div><!-- /col-md-4 -->
+	
+</div><!-- /form-row -->
+
+<div class="form-row">
+	<div class="col-md-3">
+		<label for="peso_neto">Volumen</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">M3</div>
+			</div>
+			<%= f.text_field(:volumen, class: 'form-control') %>
+		</div>
+	</div><!-- /col-md-6 -->
+	<div class="col-md-3">
+		<label for="peso_neto">Embalaje</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">Pallets</div>
+			</div>
+			<%= f.text_field(:embalaje, class: 'form-control') %>
+		</div>
+	</div><!-- /col-md-6 -->
+	<div class="col-md-3">
+		<label for="peso_neto">Flete</label>
+		<div class="input-group mb-2">
+			<div class="input-group-prepend">
+			  <div class="input-group-text">$</div>
+			</div>
+			<%= f.text_field(:flete, class: 'form-control') %>
+		</div>
+	</div><!-- /col-md-6 -->
+	<div class="col-md-3">
+		<label for="observacion">Observación</label>
+		<%= f.text_field(:observacion, class: 'form-control', :rows => 5) %>
+	</div><!-- /col-md-6 -->
+</div><!-- /form-row -->
+
+<hr>

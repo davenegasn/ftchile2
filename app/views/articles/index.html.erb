@@ -2,10 +2,37 @@
 	<h1>Articulos <%= link_to("Añadir artículo", new_article_path, :class => 'action new btn btn-outline-success btn-small') %></h1>
 	 
 	<hr>
-	<%= form_tag(articles_path, method: :get) do %>
-	  <%= text_field_tag :term,  nil, placeholder: 'Ingresar + o - (ej. +10)' %>
-	  <%= submit_tag ("Porcentaje") %>
-	<% end %>
+	<div class="row">
+		<div class="col-md-6">
+			<label>Filtrar por Proveedor</label>
+			<%= form_tag(articles_path, method: :get) do %>
+			<div class="form-row">
+   				<div class="col-md-9 mb-9">
+			  		<%= select_tag "supplier", options_from_collection_for_select(@suppliers, "id", "nombre"), :class => 'form-control' %>
+			  	</div>
+			  	<div class="col-md-3 mb-3">
+			  		<%= submit_tag "Filtrar", :class => 'btn btn-small btn-outline-primary btn-block' %>
+			  	</div>
+			</div>
+			<% end %>
+		</div>	
+		<div class="col-md-6">
+			<label>Modificar valores</label>
+			<%= form_tag(articles_path, method: :get) do %>
+			<div class="form-row">
+   				<div class="col-md-9 mb-9">
+			  		<%= text_field_tag :term,  nil, placeholder: 'Ingresar + o - (ej. +10)', :class => 'form-control' %>
+			  	</div>
+			  	<div class="col-md-3 mb-3">
+			  		<%= submit_tag "Porcentaje", :class => 'btn btn-small btn-outline-warning btn-block'%>
+			  	</div>
+
+			<% end %>
+		</div>	
+		<div class="col-md-4">
+			
+		</div>	
+	</div>
 	
 	<table class="table table-striped" style="margin-top: 10px;">
 	  <thead>

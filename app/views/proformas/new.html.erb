@@ -1,16 +1,15 @@
 <main class="proforma">
 
-	<h1>Generar Factura Proforma</h1>
-
-	<%= link_to("Añadir proforma", new_proforma_path, :class => 'action new btn btn-light') %>
+	<h1>Generar Factura Proforma <%= link_to("Volver", proformas_path, :class => 'action back btn btn-outline-primary btn-small') %></h1>
+	<hr>
 	
 	<div class="new-proforma-container">
 
 		<%= form_for(@proforma) do |f| %>
 
-		<%= render(:partial => 'form', :locals => {:f => f}) %>
+			<%= render(:partial => 'form', :locals => {:f => f}) %>
 
-		<%= f.submit("Añadir") %>
+			<%= f.submit("Añadir", class: "btn btn-success btn-small") %>
 	  	
 		<% end %>
 		

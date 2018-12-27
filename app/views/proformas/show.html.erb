@@ -1,7 +1,7 @@
 <main class="proforma">
 	<h1>Proforma #<%= @proforma.id %></h1>
 	<hr>
-	<h3>Agregar artículos</h3>
+	<h3>Información proforma</h3>
 	
 	<div class="new-proforma-container">
 
@@ -16,7 +16,6 @@
 						<div class="form-group col-md-6">
 							<label for="nombre">Nombre</label>
 							<%= text_field( :cliente, :nombre, :value => @cliente.nombre, class: 'form-control', :readonly => true)%>
-							
 						</div><!-- /form-group -->
 
 						<div class="form-group col-md-6">
@@ -61,22 +60,58 @@
 			</div><!-- /col-md-6 -->
 
 		</div><!-- /row -->
-
 		
 	</div><!-- /new-proforma-container -->
 
 	<div class="row">
-		<% if @proforma_articles %>
-		<ul>
-			<% @proforma_articles.each do |article| %>
-			<li><%= article.nombre %> </li>
-			<% end %>
-		</ul>
-		<% end %>
+
+		<% if @articles_proforma %>
 
 		<div class="col-md-12">
 
-			<h3>Productos</h3>
+			<hr>
+
+			<h3>Artículos añadidos</h3>
+
+			<hr>
+
+			<table class="table table-bordered">
+				<thead>
+				    <tr>
+				      <th scope="col">Artículo</th>
+				      <th scope="col">Cantidad</th>
+				      <th scope="col">Valor</th>
+				       <th scope="col"></th>
+				    </tr>
+				</thead>
+				<tbody>
+					<% @articles_proforma.each do |article| %>
+					<tr>
+	      				<th scope="row">
+	      					<%= text_field( :articles_proforma, :nombre, :value => article.article.nombre, class: 'form-control', :readonly => true)%>
+	      				</th>
+	      				<th scope="row">
+	      					<%= text_field( :articles_proforma, :nombre, :value => article.quantity, class: 'form-control', :readonly => true)%>
+	      				</th>
+	      				<th scope="row">
+	      					<%= text_field( :articles_proforma, :nombre, :value => article.subtotal, class: 'form-control', :readonly => true)%>
+	      				</th>
+	      				<th scope="row">
+	      					<%= link_to("Quitar", delete_article_proforma_path(article), :class => 'btn btn-outline-danger btn-sm') %>
+	      				</th>
+	      			</tr>
+					<% end %>
+				</tbody>
+			</table>
+			
+		</div><!-- /col-md-12 -->
+		<% end %>
+
+		<div class="col-md-12">
+			
+			<hr>
+			<h3>Añadir artículo</h3>
+			<hr>
 
 			<%= form_for(@articleproforma) do |f| %>
 
@@ -86,7 +121,7 @@
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
-			      <th width="50%" scope="col">Producto</th>
+			      <th width="50%" scope="col">Artículo</th>
 			      <th  width="20%" scope="col">Cantidad</th>
 			      <th scope="col" style="text-align: center;">Subtotal</th>
 			    </tr>
@@ -99,20 +134,22 @@
 					</td>
 			      	<td width="20%">
 			      		<div class="form-row">
-							<div class="form-group col-md-8">
+							<div class="form-group col-md-12">
 								<%= f.text_field(:quantity, id: 'qty', class: 'input-number', value: 1, min: 0, max: 1000, type: 'number', style: 'width:100%') %>
 							</div>
-							<div class="form-group col-md-4">
-								<button id="article-sum" class="btn btn-sm btn-success">Añadir</button>
-							</div>
+							
 						</div>
 			      	</td>
 			      	<td style="text-align: center;"><%= f.text_field(:subtotal, id: 'subtotal', class: 'form-control') %></td>
 			    </tr>
+
 			  </tbody>
+
 			</table>
 
-			<%= f.submit "Añadir Artículo" %>
+			<hr>
+
+			<%= f.submit "Añadir Artículo", class: "btn btn-success" %>
 			
 			<% end %>
 

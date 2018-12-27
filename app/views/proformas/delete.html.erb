@@ -1,2 +1,11 @@
-<h1>Proformas#delete</h1>
-<p>Find me in app/views/proformas/delete.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Eliminar proforma</h1>
+			<%= form_for(@proforma, :method => 'delete') do |f| %>
+			<p>¿Está seguro que desea eliminar la proforma?</p>
+			<%= f.submit("Eliminar") %>
+			<% end %>
+		</div>
+	</div>
+</div>

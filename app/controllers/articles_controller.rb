@@ -4,22 +4,22 @@ class ArticlesController < ApplicationController
   respond_to :html, :js
 
   def index
-     @articles = if params[:term]
+    
+    @suppliers = Supplier.all
+    @articles = Article.all
 
-      @articles = Article.all
+    if params[:term]
       #obtener el operador + o -
       @operator = params[:term][0,1]
       #obtener el porcentaje
       @percentage = params[:term].to_i
       #el porcentaje en decimal
       @percentage = @percentage.to_f / 100
-
       @articles.each do |article|
         #el valor original del articulo en entero
         @originalValue = article.precio.to_i
         #el valor a aumentar o reducir
         @increase = (@percentage * @originalValue).to_i 
-
         #determinar la operacion segun el operador numerico
         if @operator.to_s == "+".to_s
           @finalVal = @originalValue + @increase
@@ -29,9 +29,11 @@ class ArticlesController < ApplicationController
         #actualizar al valor final 
         article.update({:precio => @finalVal})
       end 
-
-    else
-      @articles = Article.all
+    elsif params[:supplier] #ejecutar filtro para articulos de x proveedor
+      @supplier = Supplier.find( params[:supplier] )
+      @articles = @supplier.articles
+    else #todos los artículos
+      @suppliers = Supplier.all
     end
 
   end
