@@ -37,3 +37,35 @@
 	</div>
 </div><!-- /form-row -->
 <hr>
+<h3>Datos bancarios</h3>
+<hr>
+<div class="form-row">
+	<div class="form-group col-md-6">
+	  <label for="apellido_materno">Nombre del banco</label>
+	  <%= f.text_field(:banco_nombre, class: 'form-control') %>
+	</div>
+	<div class="form-group col-md-6">
+	  <label for="direccion">Banco Iban</label>
+	  <%= f.text_field(:banco_iban, class: 'form-control') %>
+	</div>
+</div><!-- /form-row -->
+<div class="form-row">
+	<div class="form-group col-md-6">
+	  <label for="apellido_materno">Swift</label>
+	  <%= f.text_field(:banco_swift, class: 'form-control') %>
+	</div>
+	<div class="form-group col-md-6">
+	  <label for="direccion">Dirección del banco</label>
+	  <%= f.text_field(:banco_direccion, class: 'form-control') %>
+	</div>
+</div><!-- /form-row -->
+<div class="form-row">
+	<div class="form-group col-md-6">
+	  <label for="apellido_materno">Abi</label>
+	  <%= f.text_field(:banco_abi, class: 'form-control') %>
+	</div>
+	<div class="form-group col-md-6">
+	  <label for="direccion">Cab</label>
+	  <%= f.text_field(:banco_cab, class: 'form-control') %>
+	</div>
+</div><!-- /form-row -->

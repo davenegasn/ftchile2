@@ -62,7 +62,7 @@ class SuppliersController < ApplicationController
 
   private
   def supplier_params
-    params.require(:supplier).permit(:nombre, :direccion, :telefono, :email, :logo, :descripcion, :image, :ubicacion)
+    params.require(:supplier).permit(:nombre, :direccion, :telefono, :email, :logo, :descripcion, :image, :ubicacion, :banco_nombre, :banco_iban, :banco_swift, :banco_direccion, :banco_abi, :banco_cab)
   end 
 
 end

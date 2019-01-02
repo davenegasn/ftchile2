@@ -57,7 +57,7 @@
 						</tr>
 						<tr>
 							<td>Ciudad-País</td>
-							<td class="data"><%= @cliente.comuna.nombre %></td>
+							<td class="data"><%= @cliente.ubicacion %></td>
 						</tr>
 						
 					</table>
@@ -172,6 +172,41 @@
 							<td class="blue" style="text-align: center;" class="data">Total</td>
 							<td class="blue" style="text-align: center;">CFR</td>
 							<td style="text-align: center;"><%= @subtotals.sum + @proforma.flete %></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<table class="shipping">
+			<tr>
+				<td width="50%">
+					<h4>Datos Bancarios</h4>
+					<table class="shipping">
+						<tr>
+							<td class="header blue">Banco</td>
+							<td><%= @supplier.banco_nombre %></td>
+						</tr>
+						<tr>
+							<td class="header blue">Dirección</td>
+							<td><%= @supplier.banco_direccion %></td>
+						</tr>
+					</table>
+					
+				</td>
+				<td width="50%">
+					<table class="shipping" style="margin-top: 30px;">
+						<tr>
+							<td class="header blue">IBAN</td>
+							<td><%= @supplier.banco_iban %></td>
+							<td class="header blue">SWIFT</td>
+							<td><%= @supplier.banco_swift %></td>
+						</tr>
+						<tr>
+							<td class="header blue">ABI</td>
+							<td><%= @supplier.banco_abi %></td>
+							<td class="header blue">CAB</td>
+							<td><%= @supplier.banco_cab %></td>
 						</tr>
 					</table>
 				</td>
