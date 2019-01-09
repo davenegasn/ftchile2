@@ -1,5 +1,5 @@
 class RemoveComunaFromClientes < ActiveRecord::Migration[5.0]
   def change
-  	remove_column :clientes, :comuna
+  	remove_column :ubicacion, :comuna
   end
 end
