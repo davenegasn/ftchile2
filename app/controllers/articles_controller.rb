@@ -8,26 +8,29 @@ class ArticlesController < ApplicationController
     @suppliers = Supplier.all
     @articles = Article.all
 
-    if params[:term]
+    if params[:term] && params[:supplier]
+      supplier = Supplier.find( params[:supplier] )
       #obtener el operador + o -
-      @operator = params[:term][0,1]
+      operator = params[:operator]
       #obtener el porcentaje
-      @percentage = params[:term].to_i
+      percentage = params[:term].to_i
       #el porcentaje en decimal
-      @percentage = @percentage.to_f / 100
-      @articles.each do |article|
+      percentage = percentage.to_f / 100
+      supplier.articles.each do |article|
         #el valor original del articulo en entero
-        @originalValue = article.precio.to_i
+        originalValue = article.precio.to_i
         #el valor a aumentar o reducir
-        @increase = (@percentage * @originalValue).to_i 
+        increase = (percentage * originalValue).to_i 
         #determinar la operacion segun el operador numerico
-        if @operator.to_s == "+".to_s
-          @finalVal = @originalValue + @increase
+        if operator == "-"
+          val = originalValue - increase
         else 
-          @finalVal = @originalValue - @increase
+          val = originalValue + increase
         end 
+
         #actualizar al valor final 
-        article.update({:precio => @finalVal})
+        article.update({:precio => val})
+
       end 
     elsif params[:supplier] #ejecutar filtro para articulos de x proveedor
       @supplier = Supplier.find( params[:supplier] )
