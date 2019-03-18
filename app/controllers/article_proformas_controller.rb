@@ -1,6 +1,13 @@
 class ArticleProformasController < ApplicationController
 	def create
-		@articleproforma = ArticleProforma.new(article_proforma_params)
+		#Calcular el subtotal antes de ingresar a la bd
+		currentArticleId = params[:article_proforma][:article_id] 
+		currentArticleqty = params[:article_proforma][:quantity] 
+		article = Article.find(currentArticleId)
+		subtotal = article.precio.to_i * currentArticleqty.to_i
+		params[:article_proforma][:subtotal] = subtotal
+
+		@articleproforma = ArticleProforma.new(params[:article_proforma].permit(:article_id, :proforma_id, :quantity, :subtotal))
 		
 	    if @articleproforma.save
 	      redirect_to(proforma_path(params[:article_proforma][:proforma_id]))
@@ -8,7 +15,7 @@ class ArticleProformasController < ApplicationController
 	      flash[:notice] = @articleproforma.errors.full_messages.to_sentence
 	      render('new')
 	    end 
-	end 
+	end  
 
 	def delete
 		@articleproforma = ArticleProforma.find(params[:id])
@@ -22,6 +29,7 @@ class ArticleProformasController < ApplicationController
 
 	private
 	def article_proforma_params
+		
 		params.require(:article_proforma).permit(:article_id, :proforma_id, :quantity, :subtotal)
 	end 
 end

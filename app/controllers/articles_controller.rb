@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :confirm_logged_in
-  respond_to :html, :js
 
+  
   def index
     
     @suppliers = Supplier.all
@@ -83,18 +83,7 @@ class ArticlesController < ApplicationController
     redirect_to(articles_path)
   end 
 
-  def get_ajax_price
-    article_id = params[:article_id]
-    # do something with some_parameter and return the results
-
-    @article = Article.find(article_id)
-
-    respond_to do |format|
-      format.html
-      format.json {render json: @article}
-    end
-    
-  end 
+  
 
   private
   def article_params

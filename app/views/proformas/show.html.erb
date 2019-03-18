@@ -27,7 +27,6 @@
 							<label for="nombre">Dirección</label>
 						  	<%= text_field( :cliente, :direccion, :value => + @cliente.direccion, class: 'form-control', :readonly => true)%>
 						</div><!-- /form-group -->
-						
 
 					</div><!-- /form-row -->
 
@@ -79,9 +78,10 @@
 				<thead>
 				    <tr>
 				      <th scope="col">Artículo</th>
+				      <th scope="col">Valor unitario</th>
 				      <th scope="col">Cantidad</th>
-				      <th scope="col">Valor</th>
-				       <th scope="col"></th>
+				      <th scope="col">Subtotal</th>
+				      <th scope="col"></th>
 				    </tr>
 				</thead>
 				<tbody>
@@ -91,10 +91,13 @@
 	      					<%= text_field( :articles_proforma, :nombre, :value => article.article.nombre, class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
+	      					<%= text_field( :articles_proforma, :nombre, :value => article.article.precio, class: 'form-control', :readonly => true)%>
+	      				</th>
+	      				<th scope="row">
 	      					<%= text_field( :articles_proforma, :nombre, :value => article.quantity, class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
-	      					<%= text_field( :articles_proforma, :nombre, :value => article.subtotal, class: 'form-control', :readonly => true)%>
+	      					<%= text_field( :articles_proforma, :subtotal, :value => article.subtotal, class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
 	      					<%= link_to("Quitar", delete_article_proforma_path(article), :class => 'btn btn-outline-danger btn-sm') %>
@@ -121,9 +124,9 @@
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
-			      <th width="50%" scope="col">Artículo</th>
+			      <th width="80%" scope="col">Artículo</th>
 			      <th  width="20%" scope="col">Cantidad</th>
-			      <th scope="col" style="text-align: center;">Subtotal</th>
+			      
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -136,11 +139,12 @@
 			      		<div class="form-row">
 							<div class="form-group col-md-12">
 								<%= f.text_field(:quantity, id: 'qty', class: 'input-number', value: 1, min: 0, max: 1000, type: 'number', style: 'width:100%') %>
+								
 							</div>
 							
 						</div>
 			      	</td>
-			      	<td style="text-align: center;"><%= f.text_field(:subtotal, id: 'subtotal', class: 'form-control') %></td>
+			      	
 			    </tr>
 
 			  </tbody>

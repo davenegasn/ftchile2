@@ -36,31 +36,9 @@ $('document').ready(function(){
 		
 	});
 
-	$('#article-sum').on('click', function(event){
-		event.preventDefault();
-		var article_id = $('#article_selected').val(); 
-		var qty = $('#qty').val(); 
-		
-		$.ajax({
-			type: "GET",
-			url: "/articles/get_ajax_price",
-			dataType:'json',
-  			data: {article_id: article_id},
-			success: function(response){
+	
 
-				console.log(response);
-				total = qty * response.precio;
-				$('#subtotal').val(total);
 
-			},
-			error: function(error){
-				console.log(error);
-			}
-		});
-
-		alert('Producto agregado');
-
-	});
 
 	function get_ajax(path, id, prefix ){
 		$.ajax({
