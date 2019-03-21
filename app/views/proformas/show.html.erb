@@ -91,13 +91,13 @@
 	      					<%= text_field( :articles_proforma, :nombre, :value => article.article.nombre, class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
-	      					<%= text_field( :articles_proforma, :nombre, :value => article.article.precio, class: 'form-control', :readonly => true)%>
+	      					<%= text_field( :articles_proforma, :nombre, :value => number_to_currency(article.article.precio), class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
 	      					<%= text_field( :articles_proforma, :nombre, :value => article.quantity, class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
-	      					<%= text_field( :articles_proforma, :subtotal, :value => article.subtotal, class: 'form-control', :readonly => true)%>
+	      					<%= text_field( :articles_proforma, :subtotal, :value => number_to_currency(article.subtotal), class: 'form-control', :readonly => true)%>
 	      				</th>
 	      				<th scope="row">
 	      					<%= link_to("Quitar", delete_article_proforma_path(article), :class => 'btn btn-outline-danger btn-sm') %>
@@ -133,7 +133,7 @@
 			    <tr>
 			      	<th scope="row">1</th>
 			      	<td width="50%">
-			      		<%= f.collection_select :article_id, @articles, :id, :nombre, {}, {:class => 'form-control'} %>
+			      		<%= f.collection_select :article_id, @allArticles, :id, :nombre, {}, {:class => 'form-control'} %>
 					</td>
 			      	<td width="20%">
 			      		<div class="form-row">

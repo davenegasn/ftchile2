@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
-      redirect_to(article_path(@article))
+      redirect_to(articles_path)
     else 
       flash[:notice] = @article.errors.full_messages.to_sentence
       render('edit')

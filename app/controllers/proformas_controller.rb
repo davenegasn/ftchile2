@@ -14,6 +14,8 @@ class ProformasController < ApplicationController
 
     #articulos asociados al supplier actual
     @articles = @supplier.articles
+    #todos los articulos (para ser utilizado por select)
+    @allArticles = Article.all
 
     #generar una nueva relacion article-proforma
     @articleproforma = ArticleProforma.new

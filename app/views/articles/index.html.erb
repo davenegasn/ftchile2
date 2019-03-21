@@ -57,7 +57,7 @@
 	       <td><%= article.descripcion %><br>
 	       	<%= link_to("editar", edit_article_path(article), :class => 'btn btn-outline-warning btn-sm') %>
 	       </td>
-	      	<td><%= article.precio %></td>
+	      	<td><%= number_to_currency(article.precio) %></td>
 	     	<td><%= article.nombre %></td>
 	     	<td>
 	    		<%= link_to("ver / editar", edit_article_path(article), :class => 'btn btn-outline-primary btn-sm') %>

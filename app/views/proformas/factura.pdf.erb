@@ -117,18 +117,16 @@
 				<td width="15%" class="data" style="text-align: center;">P.Unitario</td>
 				<td width="15%" class="data" style="text-align: center;">Subtotal</td>
 			</tr>
-			<% @subtotals = [] #aray para sumar subtotales %>
-			<% @proforma.articles.each do |article| %>
+			<% subtotals = [] #aray para sumar subtotales %>
+			<% @articles_proforma.each do |articleProforma| %>
 			<tr>
-				<td><%= article.nombre %></td>
-				<% 
-				@article_proforma = article.article_proformas.find_by(article_id: article.id) %>
-				<td style="text-align: center;"><%= @article_proforma.quantity %></td>
-				<td style="text-align: center;"><%= article.precio %></td>
-				<td style="text-align: center;"><%= @article_proforma.subtotal %></td>
-				<% @subtotals << @article_proforma.subtotal %>
+				<td><%= articleProforma.article.nombre %></td>
+				<td style="text-align: center;"><%= articleProforma.quantity %></td>
+				<td style="text-align: center;"><%= number_to_currency(articleProforma.article.precio) %></td>
+				<td style="text-align: center;"><%= number_to_currency(articleProforma.subtotal) %></td>
+				<% subtotals << articleProforma.subtotal %>
 			</tr>
-			<% end %>
+			<% end %> 
 			
 		</table>
 		
@@ -165,7 +163,7 @@
 						<tr>
 							<td class="blue" style="text-align: center;" class="data">Total</td>
 							<td></td>
-							<td style="text-align: center;"><%= @subtotals.sum %></td>
+							<td style="text-align: center;"><%= number_to_currency(subtotals.sum) %></td>
 						</tr>
 						<tr>
 							<td class="blue" style="text-align: center;" class="data">Flete</td>
@@ -175,7 +173,7 @@
 						<tr>
 							<td class="blue" style="text-align: center;" class="data">Total</td>
 							<td class="blue" style="text-align: center;">CFR</td>
-							<td style="text-align: center;"><%= @subtotals.sum + @proforma.flete %></td>
+							<td style="text-align: center;"><%= number_to_currency(subtotals.sum + @proforma.flete) %></td>
 						</tr>
 					</table>
 				</td>
