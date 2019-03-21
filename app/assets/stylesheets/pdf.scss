@@ -1,4 +1,7 @@
 @import "bootstrap";
+img{
+	opacity:1;
+}
 table{
 	width:100%;
 }
@@ -25,10 +28,9 @@ table.header tr{
 }
 table.header .logo{
 	text-align:right;
-}
-table.header .logo{
 	max-heigh:50px;
 }
+
 table.meta{
 	margin-top:10px;
 }
