@@ -4,7 +4,7 @@ class ArticleProformasController < ApplicationController
 		currentArticleId = params[:article_proforma][:article_id] 
 		currentArticleqty = params[:article_proforma][:quantity] 
 		article = Article.find(currentArticleId)
-		subtotal = article.precio.to_i * currentArticleqty.to_i
+		subtotal = article.precio * currentArticleqty.to_i
 		params[:article_proforma][:subtotal] = subtotal
 
 		@articleproforma = ArticleProforma.new(params[:article_proforma].permit(:article_id, :proforma_id, :quantity, :subtotal))
