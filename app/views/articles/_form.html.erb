@@ -1,14 +1,15 @@
 <div class="form-row">
-	<div class="form-group col-md-12">
+	<div class="form-group col-md-8">
 	  <label for="email">Descripción</label>
 	  <%= f.text_field(:descripcion, class: 'form-control', :required => true ) %>
 	</div>
-</div><!-- /form-row -->
-<div class="form-row">
 	<div class="form-group col-md-4">
 	  <label for="nombre">Nombre</label>
 	  <%= f.text_field(:nombre, class: 'form-control', :required => true) %>
 	</div>
+</div><!-- /form-row -->
+<div class="form-row">
+	
 	<div class="form-group col-md-4">
 	  <label for="nombre">Proveedor</label>
 	   <%= f.collection_select :supplier_id, Supplier.all, :id, :nombre, {}, {:class => 'form-control'} %>
@@ -16,6 +17,10 @@
 	<div class="form-group col-md-4">
 	  <label for="precio">Precio</label>
 	  <%= f.text_field(:precio, class: 'form-control', :required => true) %>
+	</div>
+	<div class="form-group col-md-4">
+	  <label for="nombre">Unidad de medida</label>
+	  <%= f.text_field(:unidad_medida, class: 'form-control', :required => true) %>
 	</div>
 </div><!-- /form-row -->
 

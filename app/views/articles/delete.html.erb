@@ -1,2 +1,11 @@
-<h1>Articles#delete</h1>
-<p>Find me in app/views/articles/delete.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Eliminar artículo</h1>
+			<%= form_for(@article, :method => 'delete') do |f| %>
+			<p>¿Está seguro que desea eliminar el artículo?</p>
+			<%= f.submit("Eliminar") %>
+			<% end %>
+		</div>
+	</div>
+</div>

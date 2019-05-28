@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190326021336) do
+ActiveRecord::Schema.define(version: 20190513200427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 20190326021336) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "nombre"
-    t.decimal  "precio",      precision: 8, scale: 2
+    t.decimal  "precio",        precision: 8, scale: 2
     t.string   "euro"
     t.string   "dolar"
     t.text     "descripcion"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "supplier_id"
+    t.string   "unidad_medida"
     t.index ["supplier_id"], name: "index_articles_on_supplier_id", using: :btree
   end
 
@@ -75,7 +76,7 @@ ActiveRecord::Schema.define(version: 20190326021336) do
     t.integer  "total"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "codigo"
+    t.string   "codigo"
     t.integer  "cliente_id"
     t.integer  "supplier_id"
     t.float    "peso_bruto"

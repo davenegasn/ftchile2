@@ -114,6 +114,7 @@
 			<tr style="border-bottom: 1px solid #000">
 				<td width="70%" class="data">Nombre</td>
 				<td width="15%" class="data" style="text-align: center;">Cantidad</td>
+				<td width="15%" class="data" style="text-align: center;">Unidad</td>
 				<td width="15%" class="data" style="text-align: center;">P.Unitario</td>
 				<td width="15%" class="data" style="text-align: center;">Subtotal</td>
 			</tr>
@@ -122,6 +123,7 @@
 			<tr>
 				<td><%= articleProforma.article.nombre %></td>
 				<td style="text-align: center;"><%= articleProforma.quantity %></td>
+				<td style="text-align: center;"><%= articleProforma.article.unidad_medida %></td>
 				<td style="text-align: center;"><%= number_to_currency(articleProforma.article.precio) %></td>
 				<td style="text-align: center;"><%= number_to_currency(articleProforma.subtotal) %></td>
 				<% subtotals << articleProforma.subtotal %>
@@ -190,7 +192,7 @@
 							<td><%= @supplier.banco_nombre %></td>
 						</tr>
 						<tr>
-							<td class="header blue">Dirección</td>
+							<td class="header blue">Número de cuenta</td>
 							<td><%= @supplier.banco_direccion %></td>
 						</tr>
 					</table>

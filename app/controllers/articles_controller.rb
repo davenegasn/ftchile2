@@ -13,14 +13,14 @@ class ArticlesController < ApplicationController
       #obtener el operador + o -
       operator = params[:operator]
       #obtener el porcentaje
-      percentage = params[:term].to_i
+      percentage = params[:term]
       #el porcentaje en decimal
       percentage = percentage.to_f / 100
       supplier.articles.each do |article|
-        #el valor original del articulo en entero
-        originalValue = article.precio.to_i
+        #el valor original del articulo
+        originalValue = article.precio
         #el valor a aumentar o reducir
-        increase = (percentage * originalValue).to_i 
+        increase = (percentage * originalValue)
         #determinar la operacion segun el operador numerico
         if operator == "-"
           val = originalValue - increase
@@ -87,7 +87,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:supplier_id, :nombre, :precio, :euro, :dolar, :descripcion,:term)
+    params.require(:article).permit(:supplier_id, :nombre, :precio, :euro, :dolar, :descripcion,:term, :unidad_medida)
   end 
 
 end
